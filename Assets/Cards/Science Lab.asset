@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203447eaa6e94c34db6608405e684e1f, type: 3}
   m_Name: Science Lab
   m_EditorClassIdentifier: 
+  amountInGame: 4
   name: Science Lab
   description: this is where the magic happens
   color:

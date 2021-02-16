@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class CardScriptableObject : ScriptableObject {
+    public int amountInGame;
     public new string name;
     public string description;
 
