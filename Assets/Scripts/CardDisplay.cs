@@ -1,18 +1,20 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 class CardDisplay : MonoBehaviour {
 
     public CardScriptableObject card;
 
-    public Text nameText;
-    public Text descriptionText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
 
     public Image artImage;
     public Image backgroundImage;
 
-    public Text costText;
-    public Text gainText;
+    public TextMeshProUGUI costText;
+    public TextMeshProUGUI gainText;
+    public TextMeshProUGUI triggerText;
 
     public void Start() {
         nameText.text = card.name;
@@ -23,6 +25,7 @@ class CardDisplay : MonoBehaviour {
 
         costText.text = card.cost.ToString();
         gainText.text = card.gain.ToString();
+        triggerText.text = card.GetTriggerText();
     }
 
 }
