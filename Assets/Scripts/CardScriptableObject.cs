@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CardScriptableObject : ScriptableObject
-{
+public abstract class CardScriptableObject : ScriptableObject {
     public new string name;
     public string description;
 
@@ -13,10 +13,7 @@ public abstract class CardScriptableObject : ScriptableObject
     public int cost;
     public int gain;
     public List<int> triggers;
+    public string triggerText;
 
-    public abstract void Use();
-
-    public string GetTriggerText() {
-        return triggers.ToString();
-    }
+    public abstract void Use ();
 }

@@ -16,16 +16,16 @@ class CardDisplay : MonoBehaviour {
     public TextMeshProUGUI gainText;
     public TextMeshProUGUI triggerText;
 
-    public void Start() {
+    public void Start () {
         nameText.text = card.name;
         descriptionText.text = card.description;
 
         artImage.sprite = card.art;
         backgroundImage.color = card.color;
 
-        costText.text = card.cost.ToString();
-        gainText.text = card.gain.ToString();
-        triggerText.text = card.GetTriggerText();
+        costText.text = card.cost.ToString ();
+        gainText.text = card.gain.ToString ();
+        triggerText.text = card.triggerText;
     }
 
 }
