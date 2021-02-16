@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour {
     public int result = 0;
-    private Sprite[] diceSides;
+    private Sprite[] diceSideSprites;
     private Image image;
 
 	void Start () {
         image = GetComponent<Image>();
-        diceSides = Resources.LoadAll<Sprite>("Dice");
+        diceSideSprites = Resources.LoadAll<Sprite>("Dice");
+
+        // Set initial sprite to dice 6.
+        image.sprite = diceSideSprites[5];
 	}
 	
     public void Roll()
@@ -17,19 +20,16 @@ public class Dice : MonoBehaviour {
         StartCoroutine("RollDice");
     }
 
-    // Coroutine that rolls the dice
     private IEnumerator RollDice()
     {
         // Variable to contain random dice side number.
-        // It needs to be assigned. Let it be 0 initially
         int randomDiceSide = 0;
 
-        // Loop to switch dice sides ramdomly
-        // before final side appears. 20 itterations here.
+        // Loop to switch dice sides ramdomly before final side appears.
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(0, 5);
-            image.sprite = diceSides[randomDiceSide];
+            image.sprite = diceSideSprites[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
 
