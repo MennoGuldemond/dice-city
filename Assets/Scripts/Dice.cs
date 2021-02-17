@@ -2,19 +2,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dice : MonoBehaviour {
+public class Dice : MonoBehaviour
+{
     public int result = 0;
+    public bool hasRolled = false;
     private Sprite[] diceSideSprites;
     private Image image;
 
-	void Start () {
+    void Start()
+    {
         image = GetComponent<Image>();
         diceSideSprites = Resources.LoadAll<Sprite>("Dice");
 
         // Set initial sprite to dice 6.
         image.sprite = diceSideSprites[5];
-	}
-	
+    }
+
+    void OnDisable()
+    {
+        hasRolled = false;
+    }
+
+    void OnEnable()
+    {
+        result = 0;
+    }
+
     public void Roll()
     {
         StartCoroutine("RollDice");
@@ -34,5 +47,10 @@ public class Dice : MonoBehaviour {
         }
 
         result = randomDiceSide + 1;
+
+        yield return new WaitForSeconds(1f);
+
+        gameObject.SetActive(false);
+        hasRolled = true;
     }
 }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CardScriptableObject : ScriptableObject {
+public abstract class CardScriptableObject : ScriptableObject
+{
     public int amountInGame;
     public new string name;
     public string description;
@@ -16,5 +17,5 @@ public abstract class CardScriptableObject : ScriptableObject {
     public List<int> triggers;
     public string triggerText;
 
-    public abstract void Use ();
+    public abstract void Use();
 }
