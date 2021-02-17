@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour
 {
     public CardScriptableObject card;
 
@@ -16,6 +16,9 @@ class CardDisplay : MonoBehaviour
     public TextMeshProUGUI gainText;
     public TextMeshProUGUI triggerText;
 
+    [HideInInspector]
+    public CardController cardController;
+
     public void Start()
     {
         nameText.text = card.name;
@@ -27,6 +30,11 @@ class CardDisplay : MonoBehaviour
         costText.text = card.cost.ToString();
         gainText.text = card.gain.ToString();
         triggerText.text = card.triggerText;
+    }
+
+    public void OnCardClick()
+    {
+        cardController.CardChosen(this);
     }
 
 }

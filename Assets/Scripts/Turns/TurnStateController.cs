@@ -1,21 +1,25 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CardController))]
 public class TurnStateController : MonoBehaviour
 {
     [SerializeField]
     private string currentStateName;
     private ITurnState currentState;
 
+    public CardController cardController;
+
     public RollDiceState rollDiceState = new RollDiceState();
     public TransactionState transactionState = new TransactionState();
     public DevelopmentState developmentState = new DevelopmentState();
 
-    // Dice variables
+    // Dice vars
     public GameObject dicePrefab;
     public Dice dice;
 
     void Start()
     {
+        cardController = GetComponent<CardController>();
         CreateDice();
         currentState = rollDiceState;
     }
@@ -28,10 +32,10 @@ public class TurnStateController : MonoBehaviour
 
     private void CreateDice()
     {
-        GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        GameObject canvasGO = GameObject.FindGameObjectWithTag("MainCanvas");
         dice = GameObject.Instantiate(
             dicePrefab,
-            canvas.transform
+            canvasGO.transform
         ).GetComponent<Dice>();
     }
 }

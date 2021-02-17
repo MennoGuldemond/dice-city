@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
+    // State vars
+    public bool isReset = false;
     public int result = 0;
     public bool hasRolled = false;
+
     private Sprite[] diceSideSprites;
     private Image image;
 
@@ -18,19 +21,16 @@ public class Dice : MonoBehaviour
         image.sprite = diceSideSprites[5];
     }
 
-    void OnDisable()
-    {
-        hasRolled = false;
-    }
-
-    void OnEnable()
+    public void Reset()
     {
         result = 0;
+        hasRolled = false;
+        isReset = true;
     }
 
     public void Roll()
     {
-        StartCoroutine("RollDice");
+        StartCoroutine(RollDice());
     }
 
     private IEnumerator RollDice()

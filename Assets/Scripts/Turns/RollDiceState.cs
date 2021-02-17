@@ -2,6 +2,10 @@ public class RollDiceState : ITurnState
 {
     public ITurnState DoState(TurnStateController turnState)
     {
+        if (turnState.dice.isReset == false)
+        {
+            turnState.dice.Reset();
+        }
         if (turnState.dice.gameObject.activeInHierarchy == false &&
             turnState.dice.hasRolled == false)
         {
@@ -14,6 +18,7 @@ public class RollDiceState : ITurnState
         }
         else
         {
+            turnState.dice.isReset = false;
             return turnState.transactionState;
         }
     }
