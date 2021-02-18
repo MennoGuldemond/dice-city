@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 160032000}
   - component: {fileID: 160032002}
   - component: {fileID: 160032003}
+  - component: {fileID: 160032001}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -221,6 +222,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160032001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160031999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa48fded938947ac98fe073f1da31d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfOpponents: 2
 --- !u!114 &160032002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStateName: 
   cardController: {fileID: 0}
+  gameController: {fileID: 0}
   dicePrefab: {fileID: 5707798789482028654, guid: 08e6eb7e5c1923b47a2ea4a6aec85b52,
     type: 3}
   dice: {fileID: 0}
@@ -250,13 +265,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5f14d01b3530f4b97f19cac05c0405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isReset: 0
+  cardPicked: 0
+  drawingCards: 0
   allCards:
   - {fileID: 11400000, guid: d3db4d7cda3f72e4ebe5b7dc494d3cbb, type: 2}
   - {fileID: 11400000, guid: e077ad0f741a96843990b6a437535c73, type: 2}
   cardPrefab: {fileID: 3785494504488619706, guid: 3bb436768090b8f46b66f82db72866e1,
     type: 3}
-  isPicking: 0
-  randomizedCards: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

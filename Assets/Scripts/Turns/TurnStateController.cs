@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CardController))]
+[RequireComponent(typeof(GameController))]
 public class TurnStateController : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +22,7 @@ public class TurnStateController : MonoBehaviour
     void Start()
     {
         cardController = GetComponent<CardController>();
+
         CreateDice();
         currentState = rollDiceState;
     }
